@@ -1,7 +1,7 @@
 '''
 Scenario 1
 Package 1 = module 1 = display()
-            module 2 = show()       = client
+            module 2 = show()       = client1
 '''
             
 # import sys
