@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-03-25T17:38:36.008067" rpa="false" schemaversion="5">
+<suite id="s1" name="TC1" source="d:\Self\VScode\py\Robot\day1\Testcases\TC1.robot">
+<test id="s1-t1" name="Logintest" line="5">
+<kw name="Create Webdriver" owner="SeleniumLibrary">
+<msg time="2024-03-25T17:38:36.224488" level="FAIL">Keyword 'SeleniumLibrary.Create Webdriver' expected 1 to 3 non-named arguments, got 0.</msg>
+<arg>chrome executable_path="D:\Self\VScode\py\Robot\Driver\chromedriver.exe"</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<status status="FAIL" start="2024-03-25T17:38:36.224488" elapsed="0.002992">Keyword 'SeleniumLibrary.Create Webdriver' expected 1 to 3 non-named arguments, got 0.</status>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<arg>https://demo.nopcommerce.com/login?returnUrl=%2F</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="NOT RUN" start="2024-03-25T17:38:36.228477" elapsed="0.000000"/>
+</kw>
+<kw name="browser close">
+<status status="NOT RUN" start="2024-03-25T17:38:36.230471" elapsed="0.000000"/>
+</kw>
+<status status="FAIL" start="2024-03-25T17:38:36.223491" elapsed="0.007978">Keyword 'SeleniumLibrary.Create Webdriver' expected 1 to 3 non-named arguments, got 0.</status>
+</test>
+<status status="FAIL" start="2024-03-25T17:38:36.013082" elapsed="0.220381"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TC1">TC1</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
