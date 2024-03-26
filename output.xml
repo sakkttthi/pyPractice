@@ -1,34 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-03-25T17:38:36.008067" rpa="false" schemaversion="5">
-<suite id="s1" name="TC1" source="d:\Self\VScode\py\Robot\day1\Testcases\TC1.robot">
-<test id="s1-t1" name="Logintest" line="5">
-<kw name="Create Webdriver" owner="SeleniumLibrary">
-<msg time="2024-03-25T17:38:36.224488" level="FAIL">Keyword 'SeleniumLibrary.Create Webdriver' expected 1 to 3 non-named arguments, got 0.</msg>
-<arg>chrome executable_path="D:\Self\VScode\py\Robot\Driver\chromedriver.exe"</arg>
-<doc>Creates an instance of Selenium WebDriver.</doc>
-<status status="FAIL" start="2024-03-25T17:38:36.224488" elapsed="0.002992">Keyword 'SeleniumLibrary.Create Webdriver' expected 1 to 3 non-named arguments, got 0.</status>
-</kw>
-<kw name="Open Browser" owner="SeleniumLibrary">
-<arg>https://demo.nopcommerce.com/login?returnUrl=%2F</arg>
-<arg>chrome</arg>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20240326 12:11:39.127" rpa="false" schemaversion="4">
+<suite id="s1" name="Dropdown" source="d:\Self\VScode\py\robot\day2\dropdown.robot">
+<test id="s1-t1" name="Dropdown&amp;listtest" line="10">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="NOT RUN" start="2024-03-25T17:38:36.228477" elapsed="0.000000"/>
+<msg timestamp="20240326 12:11:39.620" level="INFO">Opening browser 'chrome' to base url 'https://fs2.formsite.com/meherpavan/form2/index.html?1537702596407'.</msg>
+<status status="PASS" starttime="20240326 12:11:39.619" endtime="20240326 12:11:44.417"/>
 </kw>
-<kw name="browser close">
-<status status="NOT RUN" start="2024-03-25T17:38:36.230471" elapsed="0.000000"/>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240326 12:11:44.418" endtime="20240326 12:11:44.542"/>
 </kw>
-<status status="FAIL" start="2024-03-25T17:38:36.223491" elapsed="0.007978">Keyword 'SeleniumLibrary.Create Webdriver' expected 1 to 3 non-named arguments, got 0.</status>
+<kw name="Select From List By Index" library="SeleniumLibrary">
+<arg>RESULT_RadioButton-9</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<msg timestamp="20240326 12:11:44.544" level="INFO">Selecting options from selection list 'RESULT_RadioButton-9' by index 2.</msg>
+<status status="PASS" starttime="20240326 12:11:44.543" endtime="20240326 12:11:44.647"/>
+</kw>
+<status status="PASS" starttime="20240326 12:11:39.618" endtime="20240326 12:11:44.648"/>
 </test>
-<status status="FAIL" start="2024-03-25T17:38:36.013082" elapsed="0.220381"/>
+<status status="PASS" starttime="20240326 12:11:39.140" endtime="20240326 12:11:44.650"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="TC1">TC1</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Dropdown">Dropdown</stat>
 </suite>
 </statistics>
 <errors>
