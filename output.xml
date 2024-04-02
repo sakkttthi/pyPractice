@@ -1,70 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20240401 12:14:13.335" rpa="false" schemaversion="4">
-<suite id="s1" name="Screenshot" source="d:\Self\VScode\py\robot\day4\Screenshot.robot">
-<test id="s1-t1" name="MyBrowserTest" line="11">
+<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20240402 09:03:23.741" rpa="false" schemaversion="4">
+<suite id="s1" name="Mouseaction" source="d:\Self\VScode\py\robot\day5\mouseaction.robot">
+<test id="s1-t1" name="MouseActionTest" line="10">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20240401 12:14:15.839" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
-<status status="PASS" starttime="20240401 12:14:15.839" endtime="20240401 12:14:24.608"/>
+<msg timestamp="20240402 09:03:24.277" level="INFO">Opening browser 'chrome' to base url 'https://demo.guru99.com/test/simple_context_menu.html'.</msg>
+<status status="PASS" starttime="20240402 09:03:24.276" endtime="20240402 09:03:30.782"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20240401 12:14:24.609" endtime="20240401 12:14:24.727"/>
+<status status="PASS" starttime="20240402 09:03:30.783" endtime="20240402 09:03:30.899"/>
 </kw>
 <kw name="Set Selenium Speed" library="SeleniumLibrary">
-<arg>1.5 seconds</arg>
+<arg>1 second</arg>
 <doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20240401 12:14:24.728" endtime="20240401 12:14:24.728"/>
+<status status="PASS" starttime="20240402 09:03:30.900" endtime="20240402 09:03:30.900"/>
 </kw>
-<kw name="Capture Element Screenshot" library="SeleniumLibrary">
-<arg>xpath://input[@name='username']</arg>
-<arg>D:/Self/VScode/py/robot/day4/screenshot/logo.png</arg>
-<doc>Captures a screenshot from the element identified by ``locator`` and embeds it into log file.</doc>
-<msg timestamp="20240401 12:14:27.893" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-29.png"&gt;&lt;img src="selenium-screenshot-29.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20240401 12:14:27.893" level="FAIL">Element with locator 'xpath://input[@name='username']' not found.</msg>
-<status status="FAIL" starttime="20240401 12:14:24.729" endtime="20240401 12:14:27.898"/>
+<kw name="Open Context Menu" library="SeleniumLibrary">
+<arg>xpath://*[@id="authentication"]/span</arg>
+<doc>Opens the context menu on the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20240402 09:03:30.901" endtime="20240402 09:03:33.252"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>xpath://input[@name='username']</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20240401 12:14:27.899" endtime="20240401 12:14:27.900"/>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${url}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240402 09:03:33.253" level="INFO">Opening url 'https://demo.guru99.com/test/simple_context_menu.html'</msg>
+<status status="PASS" starttime="20240402 09:03:33.253" endtime="20240402 09:03:35.052"/>
 </kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>xpath://input[@name='password']</arg>
-<arg>${pass}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20240401 12:14:27.901" endtime="20240401 12:14:27.901"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>xpath://button[@type='submit']</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20240401 12:14:27.902" endtime="20240401 12:14:27.902"/>
+<kw name="Double Click Element" library="SeleniumLibrary">
+<arg>xpath://*[@id="authentication"]/button</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<msg timestamp="20240402 09:03:35.053" level="INFO">Double clicking element 'xpath://*[@id="authentication"]/button'.</msg>
+<status status="PASS" starttime="20240402 09:03:35.052" endtime="20240402 09:03:37.350"/>
 </kw>
 <kw name="Handle Alert" library="SeleniumLibrary">
 <arg>accept</arg>
 <doc>Handles the current alert and returns its message.</doc>
-<status status="NOT RUN" starttime="20240401 12:14:27.903" endtime="20240401 12:14:27.903"/>
+<msg timestamp="20240402 09:03:37.351" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
+<status status="PASS" starttime="20240402 09:03:37.351" endtime="20240402 09:03:40.374"/>
 </kw>
-<kw name="Capture Page Screenshot" library="SeleniumLibrary">
-<arg>D:/Self/VScode/py/robot/day4/screenshot/afterlogin.png</arg>
-<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
-<status status="NOT RUN" starttime="20240401 12:14:27.904" endtime="20240401 12:14:27.904"/>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://demo.guru99.com/test/drag_drop.html</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20240402 09:03:40.375" level="INFO">Opening url 'https://demo.guru99.com/test/drag_drop.html'</msg>
+<status status="PASS" starttime="20240402 09:03:40.375" endtime="20240402 09:03:45.146"/>
 </kw>
-<status status="FAIL" starttime="20240401 12:14:15.838" endtime="20240401 12:14:27.905">Element with locator 'xpath://input[@name='username']' not found.</status>
+<kw name="Drag And Drop" library="SeleniumLibrary">
+<arg>xpath://*[@id="fourth"]/a</arg>
+<arg>xpath://*[@id="amt7"]/li</arg>
+<doc>Drags the element identified by ``locator`` into the ``target`` element.</doc>
+<status status="PASS" starttime="20240402 09:03:45.147" endtime="20240402 09:03:48.743"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240402 09:03:50.754" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240402 09:03:48.744" endtime="20240402 09:03:50.754"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240402 09:03:50.755" endtime="20240402 09:03:53.969"/>
+</kw>
+<status status="PASS" starttime="20240402 09:03:24.275" endtime="20240402 09:03:53.970"/>
 </test>
-<status status="FAIL" starttime="20240401 12:14:13.368" endtime="20240401 12:14:27.908"/>
+<status status="PASS" starttime="20240402 09:03:23.754" endtime="20240402 09:03:53.972"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Screenshot">Screenshot</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Mouseaction">Mouseaction</stat>
 </suite>
 </statistics>
 <errors>
