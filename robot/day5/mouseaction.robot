@@ -6,6 +6,7 @@ Library    SeleniumLibrary
 ${url}    https://demo.guru99.com/test/simple_context_menu.html
 ${browser}    chrome
 
+
 *** Test Cases ***
 MouseActionTest
     Open Browser    ${url}    ${browser}
