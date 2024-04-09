@@ -1,0 +1,6 @@
+datasources:f4bbf6da8152d0d465afd7291f1f523a48efc1a3
+commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
+suitesfrom:no-suites-from-option
+file:cbc5f87f1dec1d091f9d4cf4ade45c6d70ac3b52
+--suite Testcase.LoginTestcase
+--suite Testcase.LoginTestcase copy
