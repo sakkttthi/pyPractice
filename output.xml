@@ -1,82 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20240402 09:03:23.741" rpa="false" schemaversion="4">
-<suite id="s1" name="Mouseaction" source="d:\Self\VScode\py\robot\day5\mouseaction.robot">
-<test id="s1-t1" name="MouseActionTest" line="10">
+<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20240411 09:31:42.627" rpa="false" schemaversion="4">
+<suite id="s1" name="Datadriven" source="d:\Self\VScode\py\day9\datadriven.robot">
+<kw name="Open my Browser" library="datadriven_keywords" type="SETUP">
+<arg>${platform_url}</arg>
+<arg>${platform_browser}</arg>
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20240402 09:03:24.277" level="INFO">Opening browser 'chrome' to base url 'https://demo.guru99.com/test/simple_context_menu.html'.</msg>
-<status status="PASS" starttime="20240402 09:03:24.276" endtime="20240402 09:03:30.782"/>
+<msg timestamp="20240411 09:31:43.679" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<status status="PASS" starttime="20240411 09:31:43.677" endtime="20240411 09:31:49.515"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20240402 09:03:30.783" endtime="20240402 09:03:30.899"/>
+<status status="PASS" starttime="20240411 09:31:49.516" endtime="20240411 09:31:49.626"/>
 </kw>
-<kw name="Set Selenium Speed" library="SeleniumLibrary">
-<arg>1 second</arg>
-<doc>Sets the delay that is waited after each Selenium command.</doc>
-<status status="PASS" starttime="20240402 09:03:30.900" endtime="20240402 09:03:30.900"/>
+<status status="PASS" starttime="20240411 09:31:43.676" endtime="20240411 09:31:49.627"/>
 </kw>
-<kw name="Open Context Menu" library="SeleniumLibrary">
-<arg>xpath://*[@id="authentication"]/span</arg>
-<doc>Opens the context menu on the element identified by ``locator``.</doc>
-<status status="PASS" starttime="20240402 09:03:30.901" endtime="20240402 09:03:33.252"/>
+<test id="s1-t1" name="LoginTestwithExcel using" line="18">
+<kw name="Invalid login">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<msg timestamp="20240411 09:31:49.632" level="FAIL">Variable '${username}' not found.</msg>
+<status status="FAIL" starttime="20240411 09:31:49.630" endtime="20240411 09:31:49.634"/>
 </kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>${url}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20240402 09:03:33.253" level="INFO">Opening url 'https://demo.guru99.com/test/simple_context_menu.html'</msg>
-<status status="PASS" starttime="20240402 09:03:33.253" endtime="20240402 09:03:35.052"/>
-</kw>
-<kw name="Double Click Element" library="SeleniumLibrary">
-<arg>xpath://*[@id="authentication"]/button</arg>
-<doc>Double clicks the element identified by ``locator``.</doc>
-<msg timestamp="20240402 09:03:35.053" level="INFO">Double clicking element 'xpath://*[@id="authentication"]/button'.</msg>
-<status status="PASS" starttime="20240402 09:03:35.052" endtime="20240402 09:03:37.350"/>
-</kw>
-<kw name="Handle Alert" library="SeleniumLibrary">
-<arg>accept</arg>
-<doc>Handles the current alert and returns its message.</doc>
-<msg timestamp="20240402 09:03:37.351" level="INFO">HANDLE::&lt;class 'NoneType'&gt;::None</msg>
-<status status="PASS" starttime="20240402 09:03:37.351" endtime="20240402 09:03:40.374"/>
-</kw>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>https://demo.guru99.com/test/drag_drop.html</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20240402 09:03:40.375" level="INFO">Opening url 'https://demo.guru99.com/test/drag_drop.html'</msg>
-<status status="PASS" starttime="20240402 09:03:40.375" endtime="20240402 09:03:45.146"/>
-</kw>
-<kw name="Drag And Drop" library="SeleniumLibrary">
-<arg>xpath://*[@id="fourth"]/a</arg>
-<arg>xpath://*[@id="amt7"]/li</arg>
-<doc>Drags the element identified by ``locator`` into the ``target`` element.</doc>
-<status status="PASS" starttime="20240402 09:03:45.147" endtime="20240402 09:03:48.743"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20240402 09:03:50.754" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20240402 09:03:48.744" endtime="20240402 09:03:50.754"/>
-</kw>
+<status status="FAIL" starttime="20240411 09:31:49.627" endtime="20240411 09:31:49.635">Variable '${username}' not found.</status>
+</test>
+<kw name="Close my browser" library="datadriven_keywords" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20240402 09:03:50.755" endtime="20240402 09:03:53.969"/>
+<status status="PASS" starttime="20240411 09:31:49.638" endtime="20240411 09:31:52.098"/>
 </kw>
-<status status="PASS" starttime="20240402 09:03:24.275" endtime="20240402 09:03:53.970"/>
-</test>
-<status status="PASS" starttime="20240402 09:03:23.754" endtime="20240402 09:03:53.972"/>
+<status status="PASS" starttime="20240411 09:31:49.637" endtime="20240411 09:31:52.098"/>
+</kw>
+<status status="FAIL" starttime="20240411 09:31:42.639" endtime="20240411 09:31:52.099"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Mouseaction">Mouseaction</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Datadriven">Datadriven</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20240411 09:31:43.671" level="ERROR">[ DataDriver ] Error in robot file:
+  File "d:\Self\VScode\py\day9\datadriven.robot", line 0</msg>
+<msg timestamp="20240411 09:31:43.672" level="ERROR">In source file:
+  File "day9/Testdata.xlsx", line 0</msg>
+<msg timestamp="20240411 09:31:43.675" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: ImportError: Requirements (pandas, openpyxl) for XLSX support are not installed.
+    Use 'pip install -U robotframework-datadriver[XLS]' to install XLSX support.</msg>
 </errors>
 </robot>
