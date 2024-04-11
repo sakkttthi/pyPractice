@@ -8,6 +8,8 @@ Open my Browser
     [Arguments]    ${url}    ${browser}
     Open Browser    ${url}    ${browser}
     Maximize Browser Window
+    Sleep    2
+    Page Should Contain    Login
 
 Enter username and password
     [Arguments]    ${uname}    ${pass}
@@ -21,6 +23,7 @@ Close my browser
     Close Browser
 
 Error message should be visible
+    Sleep    2
     Page Should Contain    Invalid credentials
 
     

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20240411 09:31:42.627" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20240411 11:51:58.160" rpa="false" schemaversion="4">
 <suite id="s1" name="Datadriven" source="d:\Self\VScode\py\day9\datadriven.robot">
+<test id="s1-t1" name="LoginTestwithExcel using" line="18">
 <kw name="Open my Browser" library="datadriven_keywords" type="SETUP">
 <arg>${platform_url}</arg>
 <arg>${platform_browser}</arg>
@@ -8,49 +9,271 @@
 <arg>${url}</arg>
 <arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20240411 09:31:43.679" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
-<status status="PASS" starttime="20240411 09:31:43.677" endtime="20240411 09:31:49.515"/>
+<msg timestamp="20240411 11:52:01.738" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<status status="PASS" starttime="20240411 11:52:01.738" endtime="20240411 11:52:07.503"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20240411 09:31:49.516" endtime="20240411 09:31:49.626"/>
+<status status="PASS" starttime="20240411 11:52:07.504" endtime="20240411 11:52:07.618"/>
 </kw>
-<status status="PASS" starttime="20240411 09:31:43.676" endtime="20240411 09:31:49.627"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240411 11:52:09.634" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240411 11:52:07.618" endtime="20240411 11:52:09.634"/>
 </kw>
-<test id="s1-t1" name="LoginTestwithExcel using" line="18">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20240411 11:52:09.650" level="INFO">Current page contains text 'Login'.</msg>
+<status status="PASS" starttime="20240411 11:52:09.635" endtime="20240411 11:52:09.650"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:01.737" endtime="20240411 11:52:09.651"/>
+</kw>
 <kw name="Invalid login">
+<arg>Admin</arg>
+<arg>admin123</arg>
+<kw name="Enter username and password" library="datadriven_keywords">
 <arg>${username}</arg>
 <arg>${password}</arg>
-<msg timestamp="20240411 09:31:49.632" level="FAIL">Variable '${username}' not found.</msg>
-<status status="FAIL" starttime="20240411 09:31:49.630" endtime="20240411 09:31:49.634"/>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${uname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240411 11:52:09.655" level="INFO">Typing text 'Admin' into text field 'username'.</msg>
+<status status="PASS" starttime="20240411 11:52:09.653" endtime="20240411 11:52:09.734"/>
 </kw>
-<status status="FAIL" starttime="20240411 09:31:49.627" endtime="20240411 09:31:49.635">Variable '${username}' not found.</status>
-</test>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${pass}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240411 11:52:09.735" level="INFO">Typing text 'admin123' into text field 'password'.</msg>
+<status status="PASS" starttime="20240411 11:52:09.734" endtime="20240411 11:52:09.812"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:09.652" endtime="20240411 11:52:09.812"/>
+</kw>
+<kw name="Click login button" library="datadriven_keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://button[contains(text(),'')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240411 11:52:09.814" level="INFO">Clicking button 'xpath://button[contains(text(),'')]'.</msg>
+<status status="PASS" starttime="20240411 11:52:09.813" endtime="20240411 11:52:09.864"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:09.813" endtime="20240411 11:52:09.865"/>
+</kw>
+<kw name="Error message should be visible" library="datadriven_keywords">
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240411 11:52:11.867" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240411 11:52:09.866" endtime="20240411 11:52:11.867"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Invalid credentials</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20240411 11:52:12.180" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20240411 11:52:12.181" level="FAIL">Page should have contained text 'Invalid credentials' but did not.</msg>
+<status status="FAIL" starttime="20240411 11:52:11.868" endtime="20240411 11:52:12.185"/>
+</kw>
+<status status="FAIL" starttime="20240411 11:52:09.865" endtime="20240411 11:52:12.186"/>
+</kw>
+<status status="FAIL" starttime="20240411 11:52:09.652" endtime="20240411 11:52:12.186"/>
+</kw>
 <kw name="Close my browser" library="datadriven_keywords" type="TEARDOWN">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20240411 09:31:49.638" endtime="20240411 09:31:52.098"/>
+<status status="PASS" starttime="20240411 11:52:12.200" endtime="20240411 11:52:14.691"/>
 </kw>
-<status status="PASS" starttime="20240411 09:31:49.637" endtime="20240411 09:31:52.098"/>
+<status status="PASS" starttime="20240411 11:52:12.199" endtime="20240411 11:52:14.691"/>
 </kw>
-<status status="FAIL" starttime="20240411 09:31:42.639" endtime="20240411 09:31:52.099"/>
+<status status="FAIL" starttime="20240411 11:52:01.735" endtime="20240411 11:52:14.692">Page should have contained text 'Invalid credentials' but did not.</status>
+</test>
+<test id="s1-t2" name="LoginTestwithExcel using" line="18">
+<kw name="Open my Browser" library="datadriven_keywords" type="SETUP">
+<arg>${platform_url}</arg>
+<arg>${platform_browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240411 11:52:14.697" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<status status="PASS" starttime="20240411 11:52:14.697" endtime="20240411 11:52:20.428"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240411 11:52:20.428" endtime="20240411 11:52:20.549"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240411 11:52:22.552" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240411 11:52:20.549" endtime="20240411 11:52:22.552"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20240411 11:52:22.567" level="INFO">Current page contains text 'Login'.</msg>
+<status status="PASS" starttime="20240411 11:52:22.552" endtime="20240411 11:52:22.567"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:14.696" endtime="20240411 11:52:22.568"/>
+</kw>
+<kw name="Invalid login">
+<arg>Abc</arg>
+<arg>abc123</arg>
+<kw name="Enter username and password" library="datadriven_keywords">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${uname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240411 11:52:22.571" level="INFO">Typing text 'Abc' into text field 'username'.</msg>
+<status status="PASS" starttime="20240411 11:52:22.570" endtime="20240411 11:52:22.698"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${pass}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240411 11:52:22.699" level="INFO">Typing text 'abc123' into text field 'password'.</msg>
+<status status="PASS" starttime="20240411 11:52:22.698" endtime="20240411 11:52:22.772"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:22.569" endtime="20240411 11:52:22.772"/>
+</kw>
+<kw name="Click login button" library="datadriven_keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://button[contains(text(),'')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240411 11:52:22.773" level="INFO">Clicking button 'xpath://button[contains(text(),'')]'.</msg>
+<status status="PASS" starttime="20240411 11:52:22.773" endtime="20240411 11:52:22.825"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:22.772" endtime="20240411 11:52:22.825"/>
+</kw>
+<kw name="Error message should be visible" library="datadriven_keywords">
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240411 11:52:24.838" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240411 11:52:22.826" endtime="20240411 11:52:24.838"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Invalid credentials</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20240411 11:52:24.852" level="INFO">Current page contains text 'Invalid credentials'.</msg>
+<status status="PASS" starttime="20240411 11:52:24.838" endtime="20240411 11:52:24.853"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:22.825" endtime="20240411 11:52:24.853"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:22.568" endtime="20240411 11:52:24.853"/>
+</kw>
+<kw name="Close my browser" library="datadriven_keywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240411 11:52:24.855" endtime="20240411 11:52:27.273"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:24.855" endtime="20240411 11:52:27.273"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:14.694" endtime="20240411 11:52:27.274"/>
+</test>
+<test id="s1-t3" name="LoginTestwithExcel using" line="18">
+<kw name="Open my Browser" library="datadriven_keywords" type="SETUP">
+<arg>${platform_url}</arg>
+<arg>${platform_browser}</arg>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url}</arg>
+<arg>${browser}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20240411 11:52:27.279" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'.</msg>
+<status status="PASS" starttime="20240411 11:52:27.279" endtime="20240411 11:52:32.890"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20240411 11:52:32.890" endtime="20240411 11:52:33.005"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240411 11:52:35.012" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240411 11:52:33.005" endtime="20240411 11:52:35.012"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Login</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20240411 11:52:35.028" level="INFO">Current page contains text 'Login'.</msg>
+<status status="PASS" starttime="20240411 11:52:35.013" endtime="20240411 11:52:35.029"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:27.278" endtime="20240411 11:52:35.029"/>
+</kw>
+<kw name="Invalid login">
+<arg>Rakesh</arg>
+<arg>rak123</arg>
+<kw name="Enter username and password" library="datadriven_keywords">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>username</arg>
+<arg>${uname}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240411 11:52:35.033" level="INFO">Typing text 'Rakesh' into text field 'username'.</msg>
+<status status="PASS" starttime="20240411 11:52:35.032" endtime="20240411 11:52:35.112"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>password</arg>
+<arg>${pass}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20240411 11:52:35.113" level="INFO">Typing text 'rak123' into text field 'password'.</msg>
+<status status="PASS" starttime="20240411 11:52:35.113" endtime="20240411 11:52:35.184"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:35.030" endtime="20240411 11:52:35.184"/>
+</kw>
+<kw name="Click login button" library="datadriven_keywords">
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>xpath://button[contains(text(),'')]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20240411 11:52:35.186" level="INFO">Clicking button 'xpath://button[contains(text(),'')]'.</msg>
+<status status="PASS" starttime="20240411 11:52:35.185" endtime="20240411 11:52:35.239"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:35.185" endtime="20240411 11:52:35.239"/>
+</kw>
+<kw name="Error message should be visible" library="datadriven_keywords">
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20240411 11:52:37.250" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20240411 11:52:35.240" endtime="20240411 11:52:37.250"/>
+</kw>
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>Invalid credentials</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20240411 11:52:37.264" level="INFO">Current page contains text 'Invalid credentials'.</msg>
+<status status="PASS" starttime="20240411 11:52:37.251" endtime="20240411 11:52:37.264"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:35.239" endtime="20240411 11:52:37.265"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:35.030" endtime="20240411 11:52:37.265"/>
+</kw>
+<kw name="Close my browser" library="datadriven_keywords" type="TEARDOWN">
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20240411 11:52:37.266" endtime="20240411 11:52:39.708"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:37.266" endtime="20240411 11:52:39.708"/>
+</kw>
+<status status="PASS" starttime="20240411 11:52:27.276" endtime="20240411 11:52:39.709"/>
+</test>
+<status status="FAIL" starttime="20240411 11:51:58.169" endtime="20240411 11:52:39.711"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Datadriven">Datadriven</stat>
+<stat pass="2" fail="1" skip="0" id="s1" name="Datadriven">Datadriven</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20240411 09:31:43.671" level="ERROR">[ DataDriver ] Error in robot file:
-  File "d:\Self\VScode\py\day9\datadriven.robot", line 0</msg>
-<msg timestamp="20240411 09:31:43.672" level="ERROR">In source file:
-  File "day9/Testdata.xlsx", line 0</msg>
-<msg timestamp="20240411 09:31:43.675" level="ERROR">Calling method '_start_suite' of listener 'DataDriver' failed: ImportError: Requirements (pandas, openpyxl) for XLSX support are not installed.
-    Use 'pip install -U robotframework-datadriver[XLS]' to install XLSX support.</msg>
+<msg timestamp="20240411 11:52:14.694" level="WARN">Multiple tests with name 'LoginTestwithExcel using' executed in suite 'Datadriven'.</msg>
+<msg timestamp="20240411 11:52:27.276" level="WARN">Multiple tests with name 'LoginTestwithExcel using' executed in suite 'Datadriven'.</msg>
 </errors>
 </robot>

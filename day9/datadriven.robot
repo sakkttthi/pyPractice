@@ -4,8 +4,8 @@ Library    DataDriver    file=day9/Testdata.xlsx    sheet_name=Sheet1
 Resource    datadriven_keywords.robot
 
 # All 3 are required for data driven 
-Suite Setup    Open my Browser    ${platform_url}     ${platform_browser}
-Suite Teardown    Close my browser
+Test Setup    Open my Browser    ${platform_url}     ${platform_browser}
+Test Teardown    Close my browser
 Test Template    Invalid login
 
 
