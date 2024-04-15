@@ -1,0 +1,8 @@
+INSERT INTO student VALUES (101, 'A', 89);
+INSERT INTO student VALUES (102, 'B', 90);
+INSERT INTO student VALUES (103, 'C', 91);
+INSERT INTO student VALUES (104, 'D', 92);
+INSERT INTO student VALUES (105, 'E', 93);
+INSERT INTO student VALUES (106, 'F', 94);
+INSERT INTO student VALUES (107, 'G', 95);
+INSERT INTO student VALUES (108, 'H', 96);

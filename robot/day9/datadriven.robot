@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Library    DataDriver    file=day9/Testdata.xlsx    sheet_name=Sheet1
+Library    DataDriver    file=robot\day9\Testdata.xlsx    sheet_name=Sheet1
 Resource    datadriven_keywords.robot
 
 # All 3 are required for data driven 
