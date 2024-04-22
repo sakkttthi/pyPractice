@@ -1,0 +1,5 @@
+pip install robot framework
+pip install requests
+pip install robotframework-requests
+pip install -U robotframework-jsonlibrary
+

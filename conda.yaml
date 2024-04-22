@@ -15,3 +15,6 @@ dependencies:
     - openpyxl==3.1.2
     - robotframework-databaselibrary==1.4.4
     - PyMySQL==1.1.0
+    - requests==2.31.0
+    - robotframework-requests==0.9.7
+    - robotframework-jsonlibrary==0.5

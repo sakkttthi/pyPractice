@@ -1,49 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20240415 09:25:59.165" rpa="false" schemaversion="4">
-<suite id="s1" name="DBtesting" source="d:\Self\VScode\py\robot\day10\DBtesting.robot">
-<test id="s1-t1" name="Delete record" line="56">
-<kw name="Connect To Database" library="DatabaseLibrary" type="SETUP">
-<arg>pymysql</arg>
-<arg>${DBname}</arg>
-<arg>${DBuser}</arg>
-<arg>${DBpass}</arg>
-<arg>${DBhost}</arg>
-<arg>${DBport}</arg>
-<doc>Loads the DB API 2.0 module given ``dbapiModuleName`` then uses it to
-connect to the database using provided parameters such as ``dbName``, ``dbUsername``, and ``dbPassword``.</doc>
-<msg timestamp="20240415 09:25:59.884" level="INFO">Connecting using : pymysql.connect(db=world, user=root, passwd=***, host=localhost, port=3306, charset=None)</msg>
-<status status="PASS" starttime="20240415 09:25:59.738" endtime="20240415 09:25:59.926"/>
+<robot generator="Robot 6.1.1 (Python 3.10.12 on win32)" generated="20240422 10:39:55.934" rpa="false" schemaversion="4">
+<suite id="s1" name="GET request" source="d:\Self\VScode\py\robot - API\GET_request.robot">
+<test id="s1-t1" name="Get weather info" line="10">
+<kw name="Create Session" library="RequestsLibrary">
+<arg>mysession</arg>
+<arg>${BaseURL}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20240422 10:39:56.913" level="INFO">Creating Session using : alias=mysession, url=https://reqres.in/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20240422 10:39:56.912" endtime="20240422 10:39:56.918"/>
 </kw>
-<kw name="Execute Sql String" library="DatabaseLibrary">
-<var>${output}</var>
-<arg>delete from student</arg>
-<doc>Executes the ``sqlString`` as a single SQL command.</doc>
-<msg timestamp="20240415 09:25:59.928" level="INFO">Executing : Execute SQL String  |  delete from student</msg>
-<msg timestamp="20240415 09:25:59.935" level="INFO">${output} = None</msg>
-<status status="PASS" starttime="20240415 09:25:59.927" endtime="20240415 09:25:59.935"/>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>mysession</arg>
+<arg>/api/users?page=${page}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20240422 10:39:56.920" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20240422 10:39:58.484" level="INFO">GET Request : url=https://reqres.in/api/users?page=2 
+ path_url=/api/users?page=2 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20240422 10:39:58.485" level="INFO">GET Response : url=https://reqres.in/api/users?page=2 
+ status=200, reason=OK 
+ headers={'Date': 'Mon, 22 Apr 2024 05:09:52 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Report-To': '{"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1713252464&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=CydYm6jedt6BPIjZkYbFdcgN3ykVZkTwrBqO1UwW2jk%3D"}]}', 'Reporting-Endpoints': 'heroku-nel=https://nel.heroku.com/reports?ts=1713252464&amp;sid=c4c9725f-1ab0-44d8-820f-430df2718e11&amp;s=CydYm6jedt6BPIjZkYbFdcgN3ykVZkTwrBqO1UwW2jk%3D', 'Nel': '{"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}', 'X-Powered-By': 'Express', 'Access-Control-Allow-Origin': '*', 'Etag': 'W/"406-ut0vzoCuidvyMf8arZpMpJ6ZRDw"', 'Via': '1.1 vegur', 'Cache-Control': 'max-age=14400', 'CF-Cache-Status': 'HIT', 'Age': '4907', 'Vary': 'Accept-Encoding', 'Server': 'cloudflare', 'CF-RAY': '87831aad682359a0-DEL', 'Content-Encoding': 'gzip'} 
+ body={"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"id":8,"email":"lindsay.ferguson@reqres.in","first_name":"Lindsay","last_name":"Ferguson","avatar":"https://reqres.in/img/faces/8-image.jpg"},{"id":9,"email":"tobias.funke@reqres.in","first_name":"Tobias","last_name":"Funke","avatar":"https://reqres.in/img/faces/9-image.jpg"},{"id":10,"email":"byron.fields@reqres.in","first_name":"Byron","last_name":"Fields","avatar":"https://reqres.in/img/faces/10-image.jpg"},{"id":11,"email":"george.edwards@reqres.in","first_name":"George","last_name":"Edwards","avatar":"https://reqres.in/img/faces/11-image.jpg"},{"id":12,"email":"rachel.howell@reqres.in","first_name":"Rachel","last_name":"Howell","avatar":"https://reqres.in/img/faces/12-image.jpg"}],"support":{"url":"https://reqres.in/#support-heading","text":"To keep ReqRes free, contributions towards server costs are appreciated!"}} 
+ </msg>
+<msg timestamp="20240422 10:39:58.485" level="INFO">c:\ProgramData\robocorp\ht\424a59b_b1f3c24_91bb43ea\lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'reqres.in'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg timestamp="20240422 10:39:58.486" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20240422 10:39:56.919" endtime="20240422 10:39:58.486"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
-<arg>${output}</arg>
+<arg>${response.status_code}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20240415 09:25:59.935" endtime="20240415 09:25:59.935"/>
+<status status="PASS" starttime="20240422 10:39:58.487" endtime="20240422 10:39:58.489"/>
 </kw>
-<kw name="Should Be Equal As Strings" library="BuiltIn">
-<arg>${output}</arg>
-<arg>None</arg>
-<doc>Fails if objects are unequal after converting them to strings.</doc>
-<msg timestamp="20240415 09:25:59.937" level="INFO">Argument types are:
-&lt;class 'NoneType'&gt;
-&lt;class 'str'&gt;</msg>
-<status status="PASS" starttime="20240415 09:25:59.936" endtime="20240415 09:25:59.937"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.content}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240422 10:39:58.490" endtime="20240422 10:39:58.493"/>
 </kw>
-<kw name="Disconnect From Database" library="DatabaseLibrary" type="TEARDOWN">
-<doc>Disconnects from the database.</doc>
-<msg timestamp="20240415 09:25:59.938" level="INFO">Executing : Disconnect From Database</msg>
-<status status="PASS" starttime="20240415 09:25:59.937" endtime="20240415 09:25:59.939"/>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${response.headers}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20240422 10:39:58.494" endtime="20240422 10:39:58.497"/>
 </kw>
-<status status="PASS" starttime="20240415 09:25:59.737" endtime="20240415 09:25:59.939"/>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20240422 10:39:58.500" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20240422 10:39:58.498" endtime="20240422 10:39:58.500"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20240422 10:39:58.501" endtime="20240422 10:39:58.502"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${body}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20240422 10:39:58.504" level="INFO">${body} = {"page":2,"per_page":6,"total":12,"total_pages":2,"data":[{"id":7,"email":"michael.lawson@reqres.in","first_name":"Michael","last_name":"Lawson","avatar":"https://reqres.in/img/faces/7-image.jpg"},{"i...</msg>
+<status status="PASS" starttime="20240422 10:39:58.503" endtime="20240422 10:39:58.504"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${body}</arg>
+<arg>Michael</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20240422 10:39:58.505" endtime="20240422 10:39:58.506"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${content-type}</var>
+<arg>${response.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20240422 10:39:58.509" level="INFO">${content-type} = application/json; charset=utf-8</msg>
+<status status="PASS" starttime="20240422 10:39:58.507" endtime="20240422 10:39:58.509"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${content-type}</arg>
+<arg>application/json; charset=utf-8</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20240422 10:39:58.510" endtime="20240422 10:39:58.511"/>
+</kw>
+<status status="PASS" starttime="20240422 10:39:56.910" endtime="20240422 10:39:58.512"/>
 </test>
-<status status="PASS" starttime="20240415 09:25:59.174" endtime="20240415 09:25:59.941"/>
+<status status="PASS" starttime="20240422 10:39:55.944" endtime="20240422 10:39:58.514"/>
 </suite>
 <statistics>
 <total>
@@ -52,9 +96,10 @@ connect to the database using provided parameters such as ``dbName``, ``dbUserna
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="DBtesting">DBtesting</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="GET request">GET request</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20240422 10:39:56.920" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
 </errors>
 </robot>
